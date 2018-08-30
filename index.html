@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="https://unpkg.com/ionicons@4.3.0/dist/css/ionicons.min.css">
         <link rel="stylesheet" type="text/css" href="resources/css/style.css">
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="resources/js/scripts.js"></script>
         <Title>Julius Gutierrez</Title>
         
     </head>
@@ -18,9 +20,8 @@
             <nav>
                 <div class="row">
                     <ul class="main-nav js-main-nav">
-                        <li><a href="#features">About</a></li>
-                        <li><a href="#works">Skills</a></li>
-                        <li><a href="#plans">Contact</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
                     </ul>
                 </div>
             </nav>
@@ -29,14 +30,14 @@
                 <h2>Software Engineer</h2>
                 <p>Back end developer / Web Developer / Java Developer </p>
                 
-                <a class="btn btn-solid" href="#">
+                <a class="btn btn-solid js-need-website" href="#">
                     I need a website <i class="ion-ios-arrow-forward"></i>
                 </a>    
-                <a class="btn btn-transparent" href="#">
-                    I'm looking for hire <i class="ion-ios-arrow-forward"></i></a>    
+                <a class="btn btn-transparent js-need-hire" href="#">
+                    Hire me <i class="ion-ios-arrow-forward"></i></a>    
             </div>
         </header>
-        <section class="section-abt-me">
+        <section class="section-abt-me" id="about">
                 <div class="row abt-me-icons">
                         <ul>
                             <li><i class="icon ion-ios-timer"></i> 
@@ -62,19 +63,31 @@
                         <p>
                             <br/>
                             I'm available for remote work &mdash; if you like to build something, just 
-                            <a href="" class="contact-me">contact me</a> or do you like to know me more? 
+                            <a href="mailto:juliusgutierrez@ymail.com" class="contact-me">contact me</a> or do you like to know me more? 
                         </p>
                         <div class="social-accounts">
                             <ul>
-                                <li><i class="ion-logo-linkedin"></i></li>
-                                <li><i class="ion-logo-facebook"></i></li>
-                                <li><i class="ion-logo-github"></i></li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/julius-gutierrez-47302298" target="_blank">
+                                        <i class="icon ion-logo-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/usegutierrez" target="_blank">
+                                        <i class="icon ion-logo-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/usegutierrez" target="_blank">
+                                        <i class="icon ion-logo-github"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col span-1-of-2">
-                    <div class="box abt-me-skills">
+                    <div class="box abt-me-skills" id="skills">
                         <h2>What <span>I do</span></h2>
                         <ul>
                             <li>
@@ -96,41 +109,6 @@
                         </ul>
                     </div>
                 </div> 
-            </div>
-        </section>
-        <section class="section-contact">
-            <div class="row">
-                <h2>Lets create <span>your app</span></h2>
-                <form method="post" action="#" class="contact-form">
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="name">Name</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="text" name="name" id="name" placeholder="Your name" autocomplete="off" required>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="text" name="email" id="email" placeholder="Your email" autocomplete="off" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="name">You need a...</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <select name="find-us" id="find-us">
-                                    <option value="website" selected>Designed &amp; Develop</option>
-                                    <option value="design">Design</option>
-                                    <option value="custom-app">Customized app</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
         </section>
     </body>
