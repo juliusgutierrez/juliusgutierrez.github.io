@@ -225,12 +225,7 @@ input[type=submit] {
     color: #7bb315;
 }
 
-.abt-me-icons {
-    margin-bottom: 40px;
-}
-
-.abt-me-skills ul, 
-.abt-me-icons ul {
+.abt-me-skills ul {
     list-style: none;   
 }
 
@@ -238,26 +233,23 @@ input[type=submit] {
     padding: 0 10px;
 }
 
-.abt-me-icons li {
-    padding: 20px;
-    text-align: center;
-    display: inline-block;
-    margin: 0 7% 0;
-    margin-bottom: 30px;
-}
-
-.abt-me-icons p {
-    font-size: 90%;
-}
-
-.abt-me-icons i {
-    font-size: 250%;
-}
-
 .abt-me-skills p {
     font-size: 80%;
     margin-left: 10px;
     margin-bottom: 20px;
+}
+
+.abt-me-icons {
+    margin: 0 10px 15%;   
+}
+
+.abt-me-icons i {
+    margin-left: 45%;
+    font-size: 250%;
+}
+
+.big-icons p {
+    text-align: center;
 }
 
 .section-contact {
@@ -294,9 +286,19 @@ textarea {
     height: 100px;
 }
 
-
 *:focus {
     outline: none;
+}
+
+footer {
+    background-color: #202020
+}
+
+footer p {
+    color: #969696;
+    font-size: 80%;
+    padding: 10px;
+    text-align: center
 }
 
 

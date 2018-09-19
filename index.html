@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i, 700" >
         <link rel="stylesheet" href="https://unpkg.com/ionicons@4.3.0/dist/css/ionicons.min.css">
         <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="resources/js/scripts.js"></script>
@@ -38,19 +39,24 @@
             </div>
         </header>
         <section class="section-abt-me" id="about">
-                <div class="row abt-me-icons">
-                        <ul>
-                            <li><i class="icon ion-ios-timer"></i> 
-                                <p>Efficient Apps</p>
-                            </li>
-                            <li><i class="icon ion-ios-cog"></i> 
-                                <p>Customized according to your needs</p>
-                            </li>
-                            <li><i class="icon ion-ios-bug"></i> 
-                                <p>Quality Code</p>
-                            </li>
-                        </ul>
+            <div class="row">
+                <div class="abt-me-icons">
+                    <div class="col span-1-of-3 big-icons">
+                        <i class="icon ion-ios-timer"></i>
+                        <p>Efficient Apps</p>
                     </div>
+
+                     <div class="big-icons col span-1-of-3">
+                        <i class="icon ion-ios-cog"></i> 
+                        <p>Customized according to your needs</p>
+                    </div>
+
+                     <div class="big-icons col span-1-of-3">
+                        <i class="icon ion-ios-bug"></i> 
+                        <p>Quality Code</p>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col span-1-of-2">
                     <div class="box">
@@ -111,5 +117,10 @@
                 </div> 
             </div>
         </section>
+        <footer>
+            <div class="row">
+                <p>Copyright &copy; 2018 by Julius Gutierrez. All right reserved.</p>
+            </div>
+        </footer>
     </body>
 </html>
