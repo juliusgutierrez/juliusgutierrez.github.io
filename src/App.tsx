@@ -1,46 +1,57 @@
-import React from "react";
-import { Container, Typography, Paper, Link } from "@mui/material";
+import React from 'react';
 
 const App: React.FC = () => {
   return (
-    <Container maxWidth="md" style={{ marginTop: "50px" }}>
-      <Paper elevation={3} style={{ padding: "20px", borderRadius: "8px" }}>
-        <Typography variant="h4" color="primary" gutterBottom>
-          🚀 Julius Gutierrez
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          <strong>Solution Architect, System Analyst, and Software Engineer</strong> with over a decade of
-          experience in <strong>software development, solution design, and enterprise architecture</strong>. 
-          Experienced in <strong>banking, finance, e-commerce, and gaming industries</strong>, delivering scalable 
-          and high-performance solutions.
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          🎓 Holds multiple industry-recognized certifications, including <strong>AWS Solution Architect – Associate</strong>,
-          <strong> Oracle Certified Professional - Java SE 11 Developer</strong>, and <strong>Professional Scrum Master</strong>.
-          Expertise in <strong>Java, Spring Boot, AWS, microservices, system integration, and cloud computing</strong>.
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          💡 Specializes in <strong>enterprise-level solution design, backend optimizations, and cloud migrations</strong>.
-          Adept in <strong>scalable architectures, legacy system modernization, and CI/CD pipeline implementation</strong>.
-          Provides technical guidance, cross-functional collaboration, and mentoring.
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          📈 As a <strong>technical leader and architect</strong>, has driven <strong>AWS cloud transformations, integrated
-          cutting-edge technologies, and optimized development processes</strong>. Trusted advisor for strategic IT initiatives.
-        </Typography>
-        
-        <Typography variant="h6">🔗 Connect with Julius:</Typography>
-        <Typography variant="body1">
-          🌐 <Link href="http://www.juliusgutierrez.com" target="_blank">Website</Link><br />
-          💼 <Link href="https://www.linkedin.com/in/julius-gutierrez-47302298" target="_blank">LinkedIn</Link><br />
-          🐙 <Link href="https://github.com/juliusgutierrez" target="_blank">GitHub</Link>
-        </Typography>
-      </Paper>
-    </Container>
+    <div className="font-sans text-gray-800">
+      <header className="bg-gray-900 text-white py-6">
+        <nav className="container mx-auto flex justify-between items-center px-4">
+          <h1 className="text-2xl font-bold">Julius Gutierrez</h1>
+          <ul className="flex space-x-4 text-sm">
+            <li><a href="#about" className="hover:underline">About</a></li>
+            <li><a href="#experience" className="hover:underline">Experience</a></li>
+            <li><a href="#projects" className="hover:underline">Projects</a></li>
+            <li><a href="#contact" className="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section className="container mx-auto px-4 py-16 text-center" id="hero">
+        <h2 className="text-4xl font-extrabold mb-4">Solution Architect & Developer</h2>
+        <p className="text-lg">Designing scalable systems and building modern applications.</p>
+      </section>
+
+      <section className="container mx-auto px-4 py-12" id="about">
+        <h3 className="text-2xl font-semibold mb-2">About</h3>
+        <p className="mb-4">I am a seasoned architect and engineer with over a decade of experience in software development and enterprise architecture. My work spans banking, e-commerce, and gaming industries where I focus on cloud migrations and high performance systems.</p>
+      </section>
+
+      <section className="bg-gray-100 py-12" id="experience">
+        <div className="container mx-auto px-4">
+          <h3 className="text-2xl font-semibold mb-2">Experience</h3>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Led AWS cloud transformations and legacy modernizations.</li>
+            <li>Implemented microservice architectures and CI/CD pipelines.</li>
+            <li>Provided technical leadership across diverse engineering teams.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-12" id="projects">
+        <h3 className="text-2xl font-semibold mb-2">Projects</h3>
+        <p className="mb-4">Check out my work on <a href="https://github.com/juliusgutierrez" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      </section>
+
+      <section className="bg-gray-100 py-12" id="contact">
+        <div className="container mx-auto px-4">
+          <h3 className="text-2xl font-semibold mb-2">Contact</h3>
+          <p>Feel free to reach out via <a href="https://www.linkedin.com/in/julius-gutierrez-47302298" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+        </div>
+      </section>
+
+      <footer className="text-center text-sm py-4 bg-gray-900 text-white">
+        © {new Date().getFullYear()} Julius Gutierrez
+      </footer>
+    </div>
   );
 };
 
