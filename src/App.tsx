@@ -1,47 +1,48 @@
-import React from "react";
-import { Container, Typography, Paper, Link } from "@mui/material";
+import React from 'react';
+import Header from './components/Header';
+import './App.css';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <Container maxWidth="md" style={{ marginTop: "50px" }}>
-      <Paper elevation={3} style={{ padding: "20px", borderRadius: "8px" }}>
-        <Typography variant="h4" color="primary" gutterBottom>
-          🚀 Julius Gutierrez
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          <strong>Solution Architect, System Analyst, and Software Engineer</strong> with over a decade of
-          experience in <strong>software development, solution design, and enterprise architecture</strong>. 
-          Experienced in <strong>banking, finance, e-commerce, and gaming industries</strong>, delivering scalable 
-          and high-performance solutions.
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          🎓 Holds multiple industry-recognized certifications, including <strong>AWS Solution Architect – Associate</strong>,
-          <strong> Oracle Certified Professional - Java SE 11 Developer</strong>, and <strong>Professional Scrum Master</strong>.
-          Expertise in <strong>Java, Spring Boot, AWS, microservices, system integration, and cloud computing</strong>.
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          💡 Specializes in <strong>enterprise-level solution design, backend optimizations, and cloud migrations</strong>.
-          Adept in <strong>scalable architectures, legacy system modernization, and CI/CD pipeline implementation</strong>.
-          Provides technical guidance, cross-functional collaboration, and mentoring.
-        </Typography>
-        
-        <Typography variant="body1" paragraph>
-          📈 As a <strong>technical leader and architect</strong>, has driven <strong>AWS cloud transformations, integrated
-          cutting-edge technologies, and optimized development processes</strong>. Trusted advisor for strategic IT initiatives.
-        </Typography>
-        
-        <Typography variant="h6">🔗 Connect with Julius:</Typography>
-        <Typography variant="body1">
-          🌐 <Link href="http://www.juliusgutierrez.com" target="_blank">Website</Link><br />
-          💼 <Link href="https://www.linkedin.com/in/julius-gutierrez-47302298" target="_blank">LinkedIn</Link><br />
-          🐙 <Link href="https://github.com/juliusgutierrez" target="_blank">GitHub</Link>
-        </Typography>
-      </Paper>
-    </Container>
+    <div>
+      <Header />
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-center">
+        <h1 className="text-4xl font-bold mb-4">Julius Gutierrez</h1>
+        <p className="max-w-xl text-lg">
+          Solution Architect, System Analyst, and Software Engineer with over a decade of experience
+          delivering scalable and high-performance solutions.
+        </p>
+      </section>
+
+      <section id="experience" className="py-20 px-4 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Experience</h2>
+          <p className="mb-4">
+            Expertise in Java, Spring Boot, AWS, microservices, system integration, and cloud computing.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" className="py-20 px-4 bg-gray-100">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Projects</h2>
+          <p className="mb-4">Highlights of professional projects and personal experiments.</p>
+        </div>
+      </section>
+
+      <section id="contact" className="py-20 px-4 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Contact</h2>
+          <p>
+            Connect with me on
+            <a href="https://www.linkedin.com/in/julius-gutierrez-47302298" className="text-blue-500 underline ml-1">LinkedIn</a>
+            or check out my
+            <a href="https://github.com/juliusgutierrez" className="text-blue-500 underline ml-1">GitHub</a>.
+          </p>
+        </div>
+      </section>
+    </div>
   );
-};
+}
 
 export default App;
