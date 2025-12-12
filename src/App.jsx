@@ -12,7 +12,7 @@ import {
   ListItemText,
   Stack,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
 import {
   AlternateEmail,
   Language,
@@ -20,11 +20,12 @@ import {
   PhoneIphone,
   WorkOutline,
   School,
-} from '@mui/icons-material';
+} from "@mui/icons-material";
 
-import SectionCard from './components/SectionCard';
-import ChipGrid from './components/ChipGrid';
-import { contact, education, interests, roles, skills, summary } from './data';
+import SectionCard from "./components/SectionCard";
+import ChipGrid from "./components/ChipGrid";
+import { contact, education, interests, roles, skills, summary } from "./data";
+import avatar from "./assets/avatar.png";
 
 const iconMap = {
   Portfolio: <WorkOutline color="primary" />,
@@ -40,20 +41,38 @@ function App() {
         <Grid container spacing={3} alignItems="stretch">
           <Grid item xs={12} md={7}>
             <SectionCard>
-              <Stack spacing={3} direction={{ xs: 'column', md: 'row' }} alignItems={{ md: 'center' }}>
+              <Stack
+                spacing={3}
+                direction={{ xs: "column", md: "row" }}
+                alignItems={{ md: "center" }}
+              >
                 <Avatar
-                  src="https://api.dicebear.com/9.x/notionists/svg?seed=designer&backgroundColor=1d1d21"
+                  src={avatar}
                   alt="Avatar"
-                  sx={{ width: 120, height: 120, border: '2px solid #272730', boxShadow: 3 }}
+                  sx={{
+                    width: 120,
+                    height: 120,
+                    border: "2px solid #272730",
+                    boxShadow: 3,
+                  }}
                 />
                 <Stack spacing={1.5}>
                   <Typography variant="h4">{summary.name}</Typography>
-                  <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 620, lineHeight: 1.6 }}>
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ maxWidth: 620, lineHeight: 1.6 }}
+                  >
                     {summary.role}
                   </Typography>
                   <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                     {interests.map((item) => (
-                      <Chip key={item} label={item} color="primary" sx={{ bgcolor: 'rgba(124,93,255,0.16)' }} />
+                      <Chip
+                        key={item}
+                        label={item}
+                        color="primary"
+                        sx={{ bgcolor: "rgba(124,93,255,0.16)" }}
+                      />
                     ))}
                   </Stack>
                 </Stack>
@@ -61,42 +80,60 @@ function App() {
             </SectionCard>
           </Grid>
 
-          <Grid item xs={12} md={5}>
+          {/* <Grid item xs={12} md={5}>
             <SectionCard title="At a glance" dense spacing={1.5}>
               <List disablePadding>
                 <ListItem disableGutters sx={{ py: 1 }}>
-                  <ListItemIcon sx={{ color: 'text.secondary', minWidth: 36 }}>
-                    <WorkOutline />
-                  </ListItemIcon>
-                  <ListItemText primary="28 years" secondary="Years old" secondaryTypographyProps={{ color: 'text.secondary' }} />
-                </ListItem>
-                <ListItem disableGutters sx={{ py: 1 }}>
-                  <ListItemIcon sx={{ color: 'text.secondary', minWidth: 36 }}>
+                  <ListItemIcon sx={{ color: "text.secondary", minWidth: 36 }}>
                     <LocationOn />
                   </ListItemIcon>
-                  <ListItemText primary="New Delhi" secondary="India" secondaryTypographyProps={{ color: 'text.secondary' }} />
+                  <ListItemText
+                    primary="Manila"
+                    secondary="Philippines"
+                    secondaryTypographyProps={{ color: "text.secondary" }}
+                  />
                 </ListItem>
                 <ListItem disableGutters sx={{ py: 1 }}>
-                  <ListItemIcon sx={{ color: 'text.secondary', minWidth: 36 }}>
+                  <ListItemIcon sx={{ color: "text.secondary", minWidth: 36 }}>
                     <Language />
                   </ListItemIcon>
-                  <ListItemText primary="Portfolio" secondary="behance.net/juliusg" secondaryTypographyProps={{ color: 'text.secondary' }} />
+                  <ListItemText
+                    primary="Github"
+                    secondary="https://github.com/juliusgutierrez"
+                    secondaryTypographyProps={{ color: "text.secondary" }}
+                  />
                 </ListItem>
               </List>
             </SectionCard>
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={7}>
             <Stack spacing={3}>
               {roles.map((role) => (
-                <SectionCard key={role.title} title={role.title} subtitle={role.subtitle} action={<Chip label={role.period} />}> 
+                <SectionCard
+                  key={role.title}
+                  title={role.title}
+                  subtitle={role.subtitle}
+                  action={<Chip label={role.period} />}
+                >
                   <List sx={{ pl: 1 }}>
                     {role.details.map((detail) => (
                       <ListItem key={detail} disableGutters sx={{ py: 0.75 }}>
                         <ListItemIcon sx={{ minWidth: 24 }}>
-                          <Box sx={{ width: 8, height: 8, bgcolor: 'primary.main', borderRadius: '50%', mt: 0.75 }} />
+                          <Box
+                            sx={{
+                              width: 8,
+                              height: 8,
+                              bgcolor: "primary.main",
+                              borderRadius: "50%",
+                              mt: 0.75,
+                            }}
+                          />
                         </ListItemIcon>
-                        <ListItemText primary={detail} primaryTypographyProps={{ color: 'text.primary' }} />
+                        <ListItemText
+                          primary={detail}
+                          primaryTypographyProps={{ color: "text.primary" }}
+                        />
                       </ListItem>
                     ))}
                   </List>
@@ -108,7 +145,11 @@ function App() {
           <Grid item xs={12} md={5}>
             <Stack spacing={3}>
               {skills.map((group) => (
-                <SectionCard key={group.title} title={group.title} spacing={1.5}>
+                <SectionCard
+                  key={group.title}
+                  title={group.title}
+                  spacing={1.5}
+                >
                   <ChipGrid items={group.chips} />
                 </SectionCard>
               ))}
@@ -119,8 +160,20 @@ function App() {
             <SectionCard title="Education & Certifications" spacing={2.5}>
               <Stack spacing={2}>
                 {education.map((item) => (
-                  <Stack key={item.school} direction="row" spacing={2} alignItems="center">
-                    <Avatar sx={{ bgcolor: 'rgba(124,93,255,0.18)', color: 'primary.main', width: 42, height: 42 }}>
+                  <Stack
+                    key={item.school}
+                    direction="row"
+                    spacing={2}
+                    alignItems="center"
+                  >
+                    <Avatar
+                      sx={{
+                        bgcolor: "rgba(124,93,255,0.18)",
+                        color: "primary.main",
+                        width: 42,
+                        height: 42,
+                      }}
+                    >
                       <School fontSize="small" />
                     </Avatar>
                     <Box>
@@ -134,8 +187,12 @@ function App() {
                         {item.location}
                       </Typography>
                     </Box>
-                    <Box sx={{ ml: 'auto' }}>
-                      <Chip label={item.period} variant="outlined" sx={{ borderColor: 'rgba(255,255,255,0.16)' }} />
+                    <Box sx={{ ml: "auto" }}>
+                      <Chip
+                        label={item.period}
+                        variant="outlined"
+                        sx={{ borderColor: "rgba(255,255,255,0.16)" }}
+                      />
                     </Box>
                   </Stack>
                 ))}
@@ -148,11 +205,19 @@ function App() {
               <List disablePadding>
                 {contact.map((item) => (
                   <ListItem key={item.label} disableGutters sx={{ py: 1.25 }}>
-                    <ListItemIcon sx={{ minWidth: 38 }}>{iconMap[item.label]}</ListItemIcon>
+                    <ListItemIcon sx={{ minWidth: 38 }}>
+                      {iconMap[item.label]}
+                    </ListItemIcon>
                     <ListItemText
                       primary={
                         item.link ? (
-                          <Link href={item.link} target="_blank" rel="noreferrer" underline="none" color="inherit">
+                          <Link
+                            href={item.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            underline="none"
+                            color="inherit"
+                          >
                             {item.value}
                           </Link>
                         ) : (
@@ -160,17 +225,22 @@ function App() {
                         )
                       }
                       secondary={item.label}
-                      secondaryTypographyProps={{ color: 'text.secondary' }}
+                      secondaryTypographyProps={{ color: "text.secondary" }}
                     />
                   </ListItem>
                 ))}
               </List>
-              <Divider sx={{ my: 1.5 }} />
-              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                {['Dribbble', 'Behance', 'LinkedIn'].map((item) => (
-                  <Chip key={item} label={item} variant="outlined" sx={{ borderColor: 'rgba(255,255,255,0.16)' }} />
+              {/* <Divider sx={{ my: 1.5 }} /> */}
+              {/* <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                {["Dribbble", "Behance", "LinkedIn"].map((item) => (
+                  <Chip
+                    key={item}
+                    label={item}
+                    variant="outlined"
+                    sx={{ borderColor: "rgba(255,255,255,0.16)" }}
+                  />
                 ))}
-              </Stack>
+              </Stack> */}
             </SectionCard>
           </Grid>
         </Grid>
