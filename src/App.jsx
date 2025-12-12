@@ -39,7 +39,7 @@ function App() {
     <Box sx={{ pb: 6 }}>
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
         <Grid container spacing={3} alignItems="stretch">
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={12}>
             <SectionCard>
               <Stack
                 spacing={3}
@@ -49,23 +49,43 @@ function App() {
                 <Avatar
                   src={avatar}
                   alt="Avatar"
+                  variant="rounded"
                   sx={{
-                    width: 120,
-                    height: 120,
+                    width: 180,
+                    height: 180,
+                    borderRadius: 1, // tweak: 0 = perfect square, 1–2 = subtle rounding
                     border: "2px solid #272730",
                     boxShadow: 3,
                   }}
                 />
+
                 <Stack spacing={1.5}>
                   <Typography variant="h4">{summary.name}</Typography>
                   <Typography
                     variant="body1"
                     color="text.secondary"
-                    sx={{ maxWidth: 620, lineHeight: 1.6 }}
+                    sx={{ lineHeight: 1.6 }}
                   >
                     {summary.role}
                   </Typography>
-                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                  <Stack
+                    direction="row"
+                    spacing={1}
+                    flexWrap="wrap"
+                    useFlexGap
+                    alignItems="center"
+                  >
+                    <Typography variant="body1" color="text.secondary">
+                      Interests
+                    </Typography>
+                    <Divider
+                      orientation="vertical"
+                      flexItem
+                      sx={{
+                        borderColor: "rgba(255,255,255,0.3)",
+                        height: 40,
+                      }}
+                    />
                     {interests.map((item) => (
                       <Chip
                         key={item}
@@ -79,33 +99,6 @@ function App() {
               </Stack>
             </SectionCard>
           </Grid>
-
-          {/* <Grid item xs={12} md={5}>
-            <SectionCard title="At a glance" dense spacing={1.5}>
-              <List disablePadding>
-                <ListItem disableGutters sx={{ py: 1 }}>
-                  <ListItemIcon sx={{ color: "text.secondary", minWidth: 36 }}>
-                    <LocationOn />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Manila"
-                    secondary="Philippines"
-                    secondaryTypographyProps={{ color: "text.secondary" }}
-                  />
-                </ListItem>
-                <ListItem disableGutters sx={{ py: 1 }}>
-                  <ListItemIcon sx={{ color: "text.secondary", minWidth: 36 }}>
-                    <Language />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Github"
-                    secondary="https://github.com/juliusgutierrez"
-                    secondaryTypographyProps={{ color: "text.secondary" }}
-                  />
-                </ListItem>
-              </List>
-            </SectionCard>
-          </Grid> */}
 
           <Grid item xs={12} md={7}>
             <Stack spacing={3}>
