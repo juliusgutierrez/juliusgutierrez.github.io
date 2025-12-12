@@ -1,6 +1,6 @@
 export const summary = {
   name: "Julius Gutierrez",
-  role: "Senior Software Engineer and System Analyst with 10+ years of experience designing and modernizing enterprise systems, translating business requirements into scalable architectures, and delivering cloud-ready, API-driven solutions while working closely with solution architects and cross-functional teams.",
+  role: "Senior Software Engineer and System Analyst with 10+ years of experience modernizing enterprise systems, translating business requirements into scalable architectures, and delivering cloud-ready, API-driven solutions while collaborating closely with solution architects and cross-functional teams.",
 };
 
 export const interests = ["Traveling", "Photography", "Technology", "Books"];
