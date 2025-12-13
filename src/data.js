@@ -7,7 +7,7 @@ export const interests = ["Traveling", "Photography", "Technology", "Books"];
 
 export const roles = [
   {
-    company: "IT Managers",
+    company: "IT Managers Inc.",
     position: "System Analyst / Senior Java Developer",
     period: "2020 — Present",
     details: [
@@ -20,14 +20,22 @@ export const roles = [
     ],
     techStack: [
       "Java",
+      "Spring Framework",
       "Spring Boot",
       "REST APIs",
+      "SOAP Web Services",
+      "OAuth2",
+      "Salesforce APIs",
+      "JWT",
       "Oracle Database",
       "MSSQL",
-      "AWS (EC2, S3)",
-      "WebSphere",
+      "AWS (EC2, S3, FSx)",
+      "WebSphere Server",
       "Docker",
       "Jenkins",
+      "Bitbucket",
+      "Jira",
+      "Confluence",
     ],
   },
   {
@@ -46,7 +54,11 @@ export const roles = [
       "Python",
       "PostgreSQL",
       "AWS DynamoDB",
+      "AWS Lambda",
+      "AWS S3",
+      "AWS CloudWatch",
       "Docker",
+      "Kubernetes",
       "Slack API",
     ],
   },

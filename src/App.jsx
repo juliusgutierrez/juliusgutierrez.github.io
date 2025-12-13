@@ -134,6 +134,7 @@ function App() {
                     <Typography variant="body2" color="text.secondary">
                       Tech Stack
                     </Typography>
+                    <Divider sx={{ borderColor: "rgba(255,255,255,0.16)" }} />
                     <ChipGrid items={role.techStack} />
                   </Stack>
                 </SectionCard>
