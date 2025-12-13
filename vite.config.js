@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/feature/new-design",
+  base: "/",
   server: {
     port: 5173,
   },
