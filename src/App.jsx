@@ -104,9 +104,9 @@ function App() {
             <Stack spacing={3}>
               {roles.map((role) => (
                 <SectionCard
-                  key={role.company}
-                  title={role.position}
-                  subtitle={role.company}
+                  key={role.title}
+                  title={role.title}
+                  subtitle={role.subtitle}
                   action={<Chip label={role.period} />}
                 >
                   <List sx={{ pl: 1 }}>
