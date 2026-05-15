@@ -7,9 +7,34 @@ export const interests = ["Traveling", "Photography", "Technology", "Books"];
 
 export const roles = [
   {
+    title: "Capgemini",
+    subtitle: "Manager",
+    period: "2026 — Present",
+    details: [
+      "Led the design and delivery of scalable Spring Boot microservices and RESTful APIs for enterprise integration platforms, ensuring high availability, low latency, and reliable system interoperability.",
+      "Established reusable engineering frameworks, including a Maven archetype (Sync pattern), accelerating API development by ~30%, standardizing architecture, and improving developer onboarding efficiency.",
+      "Evolved the development into an AI-Assisted development workflow (Speckit + Frontier AI), automating the code generation for business logic, mapping, downstream integrations, producing 90% of the project code.",
+      "Drove API governance and design standards across projects, defining best practices for security, validation, error handling, and integration patterns aligned with enterprise architecture principles.",
+      "Provided technical leadership through code reviews, mentoring, and enforcement of clean code and engineering standards, elevating overall team quality and consistency.",
+      "Collaborated with solution architects and cross-functional teams to design cloud-ready, containerized systems aligned with microservices and distributed architecture strategies.",
+      "Defined CI/CD-aligned development practices, ensuring services are testable, maintainable, and seamlessly deployable across environments via automated pipelines.",
+      "Designed and governed API contracts and integration patterns for multi-service ecosystems and third-party platforms, ensuring transactional reliability, resilience, and secure data exchange.",
+    ],
+    techStack: [
+      "Java",
+      "Spring Boot",
+      "REST APIs",
+      "Microservices",
+      "Maven",
+      "Docker",
+      "CI/CD",
+      "AI-Assisted Development",
+    ],
+  },
+  {
     title: "IT Managers",
     subtitle: "System Analyst / Senior Java Developer",
-    period: "2020 — Present",
+    period: "2020 — January 2026",
     details: [
       "Led enterprise-wide system design and modernization initiatives aligned with long-term scalability and business goals.",
       "Migrated 6 mission-critical systems from Internet Explorer to Edge, reducing security risks and extending platform lifespan.",
