@@ -32,8 +32,8 @@ export const roles = [
     ],
   },
   {
-    title: "IT Managers",
-    subtitle: "System Analyst / Senior Java Developer",
+    company: "IT Managers Inc.",
+    position: "System Analyst / Senior Java Developer",
     period: "2020 — January 2026",
     details: [
       "Led enterprise-wide system design and modernization initiatives aligned with long-term scalability and business goals.",
@@ -45,19 +45,27 @@ export const roles = [
     ],
     techStack: [
       "Java",
+      "Spring Framework",
       "Spring Boot",
       "REST APIs",
+      "SOAP Web Services",
+      "OAuth2",
+      "Salesforce APIs",
+      "JWT",
       "Oracle Database",
       "MSSQL",
-      "AWS (EC2, S3)",
-      "WebSphere",
+      "AWS (EC2, S3, FSx)",
+      "WebSphere Server",
       "Docker",
       "Jenkins",
+      "Bitbucket",
+      "Jira",
+      "Confluence",
     ],
   },
   {
-    title: "Elephant Ventures",
-    subtitle: "Software Engineer (Remote)",
+    company: "Elephant Ventures",
+    position: "Software Engineer (Remote)",
     period: "2019 — 2020",
     details: [
       "Delivered full-stack enterprise solutions using ReactJS, Node.js, and PostgreSQL for international clients.",
@@ -71,13 +79,17 @@ export const roles = [
       "Python",
       "PostgreSQL",
       "AWS DynamoDB",
+      "AWS Lambda",
+      "AWS S3",
+      "AWS CloudWatch",
       "Docker",
+      "Kubernetes",
       "Slack API",
     ],
   },
   {
-    title: "Computer Professionals Inc.",
-    subtitle: "Senior Full-Stack Engineer (Remote)",
+    company: "Computer Professionals Inc.",
+    position: "Senior Full-Stack Engineer (Remote)",
     period: "2019 — 2019",
     details: [
       "Handled full-stack development for NDA IBM client projects, delivering scalable and secure web applications.",
@@ -86,8 +98,8 @@ export const roles = [
     techStack: ["ReactJS", "Node.js", "Docker", "Bash", "Git"],
   },
   {
-    title: "Tempest House",
-    subtitle: "Java Software Engineer (Remote)",
+    company: "Tempest House",
+    position: "Java Software Engineer (Remote)",
     period: "2018 — 2019",
     details: [
       "Designed custom data integration modules using Java and Spring to transform vendor data into client-ready formats.",
@@ -97,8 +109,8 @@ export const roles = [
     techStack: ["Java 8", "Spring Framework", "Selenium", "JUnit", "REST APIs"],
   },
   {
-    title: "Greatfeat Services Inc.",
-    subtitle: "Java Software Engineer",
+    company: "Greatfeat Services Inc.",
+    position: "Java Software Engineer",
     period: "2017 — 2018",
     details: [
       "Migrated legacy monolithic systems into a microservices-based architecture.",
@@ -108,8 +120,8 @@ export const roles = [
     techStack: ["Java", "Spring", "Microservices", "Redis", "REST APIs"],
   },
   {
-    title: "Genpact Headstrong",
-    subtitle: "Senior Java Developer",
+    company: "Genpact Headstrong",
+    position: "Senior Java Developer",
     period: "2015 — 2016",
     details: [
       "Led development of WMS-Claims projects for Sun Life Philippines, delivering Phase 1 and 2 on schedule.",
@@ -125,8 +137,8 @@ export const roles = [
     ],
   },
   {
-    title: "Novare Technologies",
-    subtitle: "Java Software Engineer",
+    company: "Novare Technologies",
+    position: "Java Software Engineer",
     period: "2013 — 2015",
     details: [
       "Delivered BPI E-LOANS system and GMOVIES seat reservation platform from concept to production.",
