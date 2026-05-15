@@ -7,8 +7,8 @@ export const interests = ["Traveling", "Photography", "Technology", "Books"];
 
 export const roles = [
   {
-    title: "Capgemini",
-    subtitle: "Manager",
+    company: "Capgemini",
+    position: "Manager",
     period: "2026 — Present",
     details: [
       "Led the design and delivery of scalable Spring Boot microservices and RESTful APIs for enterprise integration platforms, ensuring high availability, low latency, and reliable system interoperability.",
