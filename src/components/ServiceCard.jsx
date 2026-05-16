@@ -37,8 +37,9 @@ const ServiceCard = ({ icon, title, description }) => (
           display: "grid",
           placeItems: "center",
           color: "primary.light",
-          background: "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(56,189,248,0.1))",
-          border: "1px solid rgba(59,130,246,0.18)",
+          bgcolor: "rgba(148,163,184,0.06)",
+          border: "1px solid",
+          borderColor: "divider",
         }}
       >
         {iconMap[icon]}

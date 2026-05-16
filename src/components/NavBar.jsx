@@ -32,7 +32,7 @@ const Logo = () => (
         fontWeight: 800,
         fontSize: 14,
         color: "#fff",
-        background: "linear-gradient(135deg, #3b82f6, #38bdf8)",
+        bgcolor: "primary.main",
       }}
     >
       JG

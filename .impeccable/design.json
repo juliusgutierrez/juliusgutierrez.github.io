@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-17T00:00:00.000Z",
+  "title": "Design System: Julius Gutierrez Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#3b82f6",
+        "tonalRamp": ["#0c1730", "#142a5c", "#1d3f8a", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"]
+      },
+      "sky-cyan": {
+        "role": "secondary",
+        "displayName": "Sky Cyan",
+        "canonical": "#38bdf8",
+        "tonalRamp": ["#0a2533", "#0e3a4f", "#125273", "#1d7ba8", "#38bdf8", "#7dd3fc", "#bae6fd", "#e0f2fe"]
+      },
+      "ink-base": {
+        "role": "neutral",
+        "displayName": "Ink Base",
+        "canonical": "#0a0e17",
+        "tonalRamp": ["#070a11", "#0a0e17", "#10151f", "#1a2744", "#334155", "#64748b", "#94a3b8", "#cbd5e1"]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Surface Raised",
+        "canonical": "#10151f",
+        "tonalRamp": ["#070a11", "#0a0e17", "#10151f", "#1a2744", "#334155", "#64748b", "#94a3b8", "#f1f5f9"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only, one per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles." },
+      "title": { "displayName": "Title", "purpose": "Card and project names." },
+      "body": { "displayName": "Body", "purpose": "Paragraph text, 65-75ch measure." },
+      "label": { "displayName": "Label", "purpose": "Uppercase eyebrows and tech-stack strip." }
+    },
+    "shadows": [
+      { "name": "hover-lift", "value": "0 8px 32px rgba(59,130,246,0.18)", "purpose": "Blue-tinted cast on card hover only; never present at rest." }
+    ],
+    "motion": [
+      { "name": "ease-out-state", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default ease-out for hover lifts, border shifts, and nav transitions (~200-300ms)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "600px" },
+      { "name": "md", "value": "900px" },
+      { "name": "lg", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action per view; carries the blue signal.",
+      "html": "<button class=\"ds-btn-primary\">View My Work</button>",
+      "css": ".ds-btn-primary { background: #3b82f6; color: #fff; font-family: Archivo, sans-serif; font-weight: 700; font-size: 0.95rem; padding: 10px 22px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s cubic-bezier(0.22,1,0.36,1); } .ds-btn-primary:hover { background: #2563eb; } .ds-btn-primary:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action such as Download CV; a quiet tinted surface over the dark canvas.",
+      "html": "<button class=\"ds-btn-ghost\">Download CV</button>",
+      "css": ".ds-btn-ghost { background: rgba(255,255,255,0.08); color: #f1f5f9; font-family: Archivo, sans-serif; font-weight: 700; font-size: 0.95rem; padding: 10px 22px; border: 1px solid rgba(148,163,184,0.28); border-radius: 8px; cursor: pointer; transition: background 0.2s cubic-bezier(0.22,1,0.36,1); } .ds-btn-ghost:hover { background: rgba(255,255,255,0.14); } .ds-btn-ghost:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Service and project card; flat at rest, lifts and borders blue on hover.",
+      "html": "<article class=\"ds-card\"><h3 class=\"ds-card-title\">Systems Architecture</h3><p class=\"ds-card-body\">Designing scalable, API-driven architectures for enterprise integration.</p></article>",
+      "css": ".ds-card { background: #10151f; border: 1px solid rgba(148,163,184,0.14); border-radius: 16px; padding: 24px; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), border-color 0.25s, box-shadow 0.25s; } .ds-card:hover { transform: translateY(-4px); border-color: #3b82f6; box-shadow: 0 8px 32px rgba(59,130,246,0.18); } .ds-card-title { font-family: Archivo, sans-serif; font-weight: 700; font-size: 1.25rem; color: #f1f5f9; margin: 0 0 8px; letter-spacing: -0.01em; } .ds-card-body { font-family: Archivo, sans-serif; font-size: 0.95rem; line-height: 1.6; color: #94a3b8; margin: 0; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Static metadata tag for project tech stacks; not interactive.",
+      "html": "<span class=\"ds-chip\">Spring Boot</span>",
+      "css": ".ds-chip { display: inline-block; background: rgba(59,130,246,0.12); color: #bfdbfe; font-family: Archivo, sans-serif; font-weight: 600; font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; }"
+    },
+    {
+      "name": "Section Eyebrow",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature label: a blue vertical tick plus an uppercase tracked label opening every section.",
+      "html": "<div class=\"ds-eyebrow\"><span class=\"ds-eyebrow-tick\"></span><span class=\"ds-eyebrow-text\">What I Do</span></div>",
+      "css": ".ds-eyebrow { display: flex; align-items: center; gap: 12px; } .ds-eyebrow-tick { width: 3px; height: 16px; border-radius: 2px; background: linear-gradient(180deg, #60a5fa, #38bdf8); flex-shrink: 0; } .ds-eyebrow-text { font-family: Archivo, sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: #60a5fa; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed top bar, transparent over hero, translucent blurred Ink Base once scrolled.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-logo\">JG</span><div class=\"ds-nav-links\"><a class=\"ds-nav-link\" href=\"#\">Services</a><a class=\"ds-nav-link\" href=\"#\">Projects</a><button class=\"ds-nav-cta\">Let's Talk</button></div></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: rgba(10,14,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(148,163,184,0.14); } .ds-nav-logo { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #3b82f6, #38bdf8); color: #fff; font-family: Archivo, sans-serif; font-weight: 800; font-size: 14px; } .ds-nav-links { display: flex; align-items: center; gap: 8px; } .ds-nav-link { font-family: Archivo, sans-serif; font-weight: 700; font-size: 0.9rem; color: #94a3b8; text-decoration: none; padding: 6px 12px; transition: color 0.2s; } .ds-nav-link:hover { color: #f1f5f9; } .ds-nav-cta { background: #3b82f6; color: #fff; font-family: Archivo, sans-serif; font-weight: 700; font-size: 0.9rem; padding: 8px 18px; border: none; border-radius: 8px; cursor: pointer; } .ds-nav-cta:hover { background: #2563eb; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Architect's Blueprint",
+    "overview": "This is a dark drafting-table surface where structure is made visible. The palette is deep navy bordering on black, and the single blue accent behaves like linework on a blueprint: precise, deliberate, never decorative. Density is low: generous negative space, calm vertical rhythm, and a flat tonal hierarchy do the work that gradients and glow would do in a lesser portfolio. Depth comes from stepped navy surfaces and hairline borders, not from drop shadows. The aesthetic philosophy is restraint as evidence of seniority; the confidence is in what is left out.",
+    "keyCharacteristics": [
+      "Deep navy near-black canvas, flat by default",
+      "A single blue accent, used sparingly as a signal",
+      "Archivo throughout, hierarchy via weight and scale, not color",
+      "Tonal layering for depth; shadows only on hover",
+      "Wide negative space, calm rhythm, low density"
+    ],
+    "rules": [
+      { "name": "The Signal Rule", "body": "Signal Blue is used on no more than 10% of any given screen. It marks exactly one primary action, plus links, focus, and hover. If blue is filling space rather than pointing at something, remove it.", "section": "colors" },
+      { "name": "The Tonal Depth Rule", "body": "Surfaces separate by lightness step (Ink Base to Surface Raised), never by a colored stripe or a heavy shadow at rest.", "section": "colors" },
+      { "name": "The Weight-Not-Color Rule", "body": "Emphasis comes from weight and scale contrast (at least a 1.25 ratio between steps), never from coloring a word. Headings stay in Text Primary.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat when idle. If a card has a drop shadow before the cursor reaches it, the shadow is wrong. Depth at rest is a tonal step plus a 1px border, nothing more.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the page flat at rest; convey depth with the Ink Base to Surface Raised tonal step and a 1px Divider border.",
+      "Do confine Signal Blue to roughly 10% of any screen: one primary CTA, links, focus, hover.",
+      "Do drive hierarchy with Archivo's weight and scale contrast; keep heading text in Text Primary.",
+      "Do reserve the Hover Lift shadow for hover and focus states only.",
+      "Do hold body copy to a 65 to 75ch measure and give sections wide negative space."
+    ],
+    "donts": [
+      "Don't ship the generic dev-template look: the interchangeable dark-blue gradient with glowing cards.",
+      "Don't dump the resume: no walls of text with every job detail exposed at once and no hierarchy.",
+      "Don't chase trend for its own sake: no glassmorphism, no neon-on-black, no motion without purpose.",
+      "Don't color a word for emphasis. Gradient text (background-clip: text over a gradient) is prohibited.",
+      "Don't use a colored side-stripe (border-left greater than 1px) on cards or callouts.",
+      "Don't apply a resting drop shadow to any surface; flat-by-default is the rule."
+    ]
+  }
+}

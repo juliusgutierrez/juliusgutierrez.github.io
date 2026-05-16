@@ -25,9 +25,7 @@ const theme = createTheme({
     borderRadius: 16,
   },
   typography: {
-    fontFamily: ["Inter", "Roboto", "Helvetica", "Arial", "sans-serif"].join(
-      ","
-    ),
+    fontFamily: ["Archivo", "Helvetica", "Arial", "sans-serif"].join(","),
     h1: {
       fontWeight: 800,
       letterSpacing: "-0.03em",
@@ -63,7 +61,8 @@ const theme = createTheme({
           paddingBlock: 10,
         },
         containedPrimary: {
-          boxShadow: "0 10px 28px rgba(59,130,246,0.35)",
+          boxShadow: "none",
+          "&:hover": { boxShadow: "none" },
         },
         outlined: {
           borderColor: "rgba(148,163,184,0.28)",
@@ -74,10 +73,9 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          border: "1px solid rgba(148,163,184,0.12)",
-          backgroundImage:
-            "linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0))",
-          boxShadow: "0 18px 40px rgba(0,0,0,0.4)",
+          border: "1px solid rgba(148,163,184,0.14)",
+          backgroundImage: "none",
+          boxShadow: "none",
         },
       },
     },

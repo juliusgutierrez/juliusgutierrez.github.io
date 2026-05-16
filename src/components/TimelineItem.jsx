@@ -16,7 +16,6 @@ const TimelineItem = ({ period, title, company, description, last }) => (
           borderRadius: "50%",
           flexShrink: 0,
           bgcolor: "primary.main",
-          boxShadow: "0 0 0 4px rgba(59,130,246,0.18)",
         }}
       />
       {!last && (

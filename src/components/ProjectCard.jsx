@@ -55,14 +55,12 @@ const ProjectCard = ({ title, description, image, tags }) => {
           />
         ) : (
           <Typography
+            aria-hidden
             sx={{
               position: "relative",
               fontWeight: 800,
               fontSize: 52,
-              background: "linear-gradient(135deg, #60a5fa, #38bdf8)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "rgba(96,165,250,0.55)",
               lineHeight: 1,
             }}
           >

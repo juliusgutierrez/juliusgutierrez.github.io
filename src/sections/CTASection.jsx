@@ -19,8 +19,7 @@ const CTASection = () => (
         px: { xs: 3, md: 8 },
         py: { xs: 6, md: 9 },
         textAlign: "center",
-        background:
-          "radial-gradient(circle at 50% -10%, rgba(59,130,246,0.3), transparent 55%), radial-gradient(circle at 80% 110%, rgba(56,189,248,0.12), transparent 45%), linear-gradient(160deg, #10151f, #0a0e17)",
+        bgcolor: "background.paper",
       }}
     >
       <Stack spacing={3} alignItems="center">
