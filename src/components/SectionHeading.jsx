@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 /** Eyebrow + title + optional subtitle, reused by content sections. */
 const SectionHeading = ({ eyebrow, title, subtitle, align = "left" }) => (
@@ -13,12 +13,28 @@ const SectionHeading = ({ eyebrow, title, subtitle, align = "left" }) => (
     }}
   >
     {eyebrow && (
-      <Typography
-        variant="overline"
-        sx={{ color: "primary.light", fontWeight: 700, letterSpacing: "0.14em" }}
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={1.5}
+        sx={{ justifyContent: align === "center" ? "center" : "flex-start" }}
       >
-        {eyebrow}
-      </Typography>
+        <Box
+          sx={{
+            width: 3,
+            height: 16,
+            borderRadius: "2px",
+            background: "linear-gradient(180deg, #60a5fa, #38bdf8)",
+            flexShrink: 0,
+          }}
+        />
+        <Typography
+          variant="overline"
+          sx={{ color: "primary.light", fontWeight: 700, letterSpacing: "0.14em" }}
+        >
+          {eyebrow}
+        </Typography>
+      </Stack>
     )}
     <Typography variant="h3" sx={{ fontSize: { xs: "1.75rem", md: "2.25rem" } }}>
       {title}

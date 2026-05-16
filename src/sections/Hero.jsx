@@ -84,6 +84,38 @@ const Hero = () => (
             Download CV
           </Button>
         </Stack>
+
+        {/* Tech stack strip */}
+        <Stack
+          direction="row"
+          spacing={{ xs: 2, sm: 3 }}
+          alignItems="center"
+          flexWrap="wrap"
+          useFlexGap
+          sx={{ pt: 1 }}
+        >
+          <Typography
+            variant="caption"
+            sx={{ color: "text.secondary", opacity: 0.6, fontWeight: 500, whiteSpace: "nowrap" }}
+          >
+            Built with
+          </Typography>
+          {["Java", "Spring Boot", "React", "AWS", "Docker"].map((tech) => (
+            <Typography
+              key={tech}
+              variant="caption"
+              sx={{
+                color: "text.secondary",
+                opacity: 0.55,
+                fontWeight: 700,
+                letterSpacing: "0.04em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {tech}
+            </Typography>
+          ))}
+        </Stack>
       </Stack>
     </Container>
   </Box>

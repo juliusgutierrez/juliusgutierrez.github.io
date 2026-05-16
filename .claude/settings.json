@@ -3,7 +3,8 @@
     "allow": [
       "Bash(sips -g pixelWidth -g pixelHeight \"/Users/juliusgutierrez/Documents/my-repo/juliusgutierrez.github.io/mock_design/mock_design.png\")",
       "Bash(pip3 install *)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(npx impeccable *)"
     ]
   }
 }

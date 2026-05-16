@@ -4,7 +4,7 @@ import { Box, Card, Chip, Stack, Typography } from "@mui/material";
 
 /**
  * Image + title + description + tags card for the Projects grid.
- * Falls back to a gradient placeholder when the image is missing.
+ * Falls back to a styled dot-grid placeholder when the image is missing.
  */
 const ProjectCard = ({ title, description, image, tags }) => {
   const [imgOk, setImgOk] = useState(true);
@@ -14,29 +14,58 @@ const ProjectCard = ({ title, description, image, tags }) => {
       sx={{
         height: "100%",
         overflow: "hidden",
-        transition: "transform 0.2s, border-color 0.2s",
-        "&:hover": { transform: "translateY(-4px)", borderColor: "primary.main" },
+        transition: "transform 0.25s, border-color 0.25s, box-shadow 0.25s",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          borderColor: "primary.main",
+          boxShadow: "0 8px 32px rgba(59,130,246,0.2)",
+        },
       }}
     >
       <Box
         sx={{
           position: "relative",
           aspectRatio: "16 / 10",
-          background: "linear-gradient(135deg, #1e293b, #0f172a)",
+          overflow: "hidden",
+          background: "linear-gradient(135deg, #1a2744 0%, #0f172a 100%)",
+          backgroundImage:
+            "linear-gradient(135deg, #1a2744 0%, #0f172a 100%), radial-gradient(rgba(59,130,246,0.15) 1px, transparent 1px)",
+          backgroundSize: "auto, 24px 24px",
+          backgroundBlendMode: "normal",
           display: "grid",
           placeItems: "center",
         }}
       >
+        {/* Dot grid texture layer */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "radial-gradient(rgba(59,130,246,0.15) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         {imgOk && image ? (
           <Box
             component="img"
             src={image}
             alt={title}
             onError={() => setImgOk(false)}
-            sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+            sx={{ position: "relative", width: "100%", height: "100%", objectFit: "cover" }}
           />
         ) : (
-          <Typography sx={{ fontWeight: 800, fontSize: 40, color: "primary.light", opacity: 0.5 }}>
+          <Typography
+            sx={{
+              position: "relative",
+              fontWeight: 800,
+              fontSize: 52,
+              background: "linear-gradient(135deg, #60a5fa, #38bdf8)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              lineHeight: 1,
+            }}
+          >
             {title.charAt(0)}
           </Typography>
         )}

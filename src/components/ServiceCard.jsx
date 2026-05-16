@@ -20,20 +20,25 @@ const ServiceCard = ({ icon, title, description }) => (
     sx={{
       p: 3,
       height: "100%",
-      transition: "transform 0.2s, border-color 0.2s",
-      "&:hover": { transform: "translateY(-4px)", borderColor: "primary.main" },
+      transition: "transform 0.25s, border-color 0.25s, box-shadow 0.25s",
+      "&:hover": {
+        transform: "translateY(-4px)",
+        borderColor: "primary.main",
+        boxShadow: "0 8px 32px rgba(59,130,246,0.25)",
+      },
     }}
   >
     <Stack spacing={2}>
       <Box
         sx={{
-          width: 48,
-          height: 48,
+          width: 52,
+          height: 52,
           borderRadius: 2,
           display: "grid",
           placeItems: "center",
           color: "primary.light",
-          backgroundColor: "rgba(59,130,246,0.12)",
+          background: "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(56,189,248,0.1))",
+          border: "1px solid rgba(59,130,246,0.18)",
         }}
       >
         {iconMap[icon]}
