@@ -64,70 +64,52 @@ const Hero = () => (
           </Typography>
         </Reveal>
         <Reveal delay={180}>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ pt: 1 }}>
-          <Button
-            variant="contained"
-            size="large"
-            endIcon={<ArrowForward />}
-            onClick={() => scrollToId("projects")}
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            sx={{ pt: 1 }}
           >
-            View My Work
-          </Button>
-          <Button
-            variant="contained"
-            color="inherit"
-            size="large"
-            startIcon={<Download />}
-            component="a"
-            href={hero.cv}
-            target="_blank"
-            rel="noreferrer"
-            sx={{
-              bgcolor: "rgba(255,255,255,0.08)",
-              color: "text.primary",
-              boxShadow: "none",
-              border: "1px solid",
-              borderColor: "divider",
-              "&:hover": { bgcolor: "rgba(255,255,255,0.14)" },
-            }}
-          >
-            Download CV
-          </Button>
-        </Stack>
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<ArrowForward />}
+              onClick={() => scrollToId("projects")}
+            >
+              View My Work
+            </Button>
+            <Button
+              variant="contained"
+              color="inherit"
+              size="large"
+              startIcon={<Download />}
+              component="a"
+              href={hero.cv}
+              target="_blank"
+              rel="noreferrer"
+              sx={{
+                bgcolor: "rgba(255,255,255,0.08)",
+                color: "text.primary",
+                boxShadow: "none",
+                border: "1px solid",
+                borderColor: "divider",
+                "&:hover": { bgcolor: "rgba(255,255,255,0.14)" },
+              }}
+            >
+              Download CV
+            </Button>
+          </Stack>
         </Reveal>
 
         {/* Tech stack strip */}
         <Reveal delay={270}>
-        <Stack
-          direction="row"
-          spacing={{ xs: 2, sm: 3 }}
-          alignItems="center"
-          flexWrap="wrap"
-          useFlexGap
-          sx={{ pt: 1 }}
-        >
-          <Typography
-            variant="caption"
-            sx={{ color: "text.secondary", opacity: 0.6, fontWeight: 500, whiteSpace: "nowrap" }}
-          >
-            Built with
-          </Typography>
-          {["Java", "Spring Boot", "React", "AWS", "Docker"].map((tech) => (
-            <Typography
-              key={tech}
-              variant="caption"
-              sx={{
-                color: "text.secondary",
-                opacity: 0.55,
-                fontWeight: 700,
-                letterSpacing: "0.04em",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {tech}
-            </Typography>
-          ))}
-        </Stack>
+          <Stack
+            direction="row"
+            spacing={{ xs: 2, sm: 3 }}
+            alignItems="center"
+            flexWrap="wrap"
+            useFlexGap
+            sx={{ pt: 1 }}
+          ></Stack>
         </Reveal>
       </Stack>
     </Container>

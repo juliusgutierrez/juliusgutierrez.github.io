@@ -275,7 +275,7 @@ export const navLinks = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
   { label: "Skills", id: "skills" },
-  { label: "Projects", id: "projects" },
+  // { label: "Projects", id: "projects" },
   { label: "Experience", id: "experience" },
   { label: "Contact", id: "contact" },
 ];
@@ -332,7 +332,11 @@ export const projects = [
 ];
 
 export const socials = [
-  { label: "GitHub", icon: "github", link: "https://github.com/juliusgutierrez" },
+  {
+    label: "GitHub",
+    icon: "github",
+    link: "https://github.com/juliusgutierrez",
+  },
   {
     label: "LinkedIn",
     icon: "linkedin",

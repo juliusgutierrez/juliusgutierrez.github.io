@@ -16,7 +16,8 @@ function App() {
       <Hero />
       <Services />
       <Skills />
-      <Projects />
+      {false && <Projects />}
+
       <Experience />
       <CTASection />
       <Footer />
