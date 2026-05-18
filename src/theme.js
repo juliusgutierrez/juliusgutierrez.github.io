@@ -59,6 +59,9 @@ const theme = createTheme({
           borderRadius: 8,
           paddingInline: 22,
           paddingBlock: 10,
+          transition:
+            "transform 0.18s cubic-bezier(0.16,1,0.3,1), background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
+          "&:active": { transform: "translateY(1px) scale(0.98)" },
         },
         containedPrimary: {
           boxShadow: "none",

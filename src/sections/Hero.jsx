@@ -1,6 +1,7 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { ArrowForward, Download } from "@mui/icons-material";
 import Highlight from "../components/Highlight";
+import Reveal from "../components/Reveal";
 import { hero } from "../data";
 import heroImage from "../assets/backgrounds/hero_background.png";
 
@@ -13,7 +14,7 @@ const Hero = () => (
     component="section"
     sx={{
       position: "relative",
-      minHeight: { xs: "88vh", md: "92vh" },
+      minHeight: "100dvh",
       display: "flex",
       alignItems: "center",
       scrollMarginTop: "72px",
@@ -44,16 +45,25 @@ const Hero = () => (
 
     <Container maxWidth="lg" sx={{ position: "relative" }}>
       <Stack spacing={3} sx={{ maxWidth: 620, py: { xs: 8, md: 0 } }}>
-        <Typography
-          variant="h1"
-          sx={{ fontSize: { xs: "2.6rem", sm: "3.4rem", md: "4rem" } }}
-        >
-          {hero.headlineLead} <Highlight>{hero.headlineHighlight}</Highlight>{" "}
-          {hero.headlineTrail}
-        </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 480 }}>
-          {hero.subtext}
-        </Typography>
+        <Reveal delay={0}>
+          <Typography
+            variant="h1"
+            sx={{ fontSize: { xs: "2.6rem", sm: "3.4rem", md: "4rem" } }}
+          >
+            {hero.headlineLead} <Highlight>{hero.headlineHighlight}</Highlight>{" "}
+            {hero.headlineTrail}
+          </Typography>
+        </Reveal>
+        <Reveal delay={90}>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{ maxWidth: 480 }}
+          >
+            {hero.subtext}
+          </Typography>
+        </Reveal>
+        <Reveal delay={180}>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ pt: 1 }}>
           <Button
             variant="contained"
@@ -84,8 +94,10 @@ const Hero = () => (
             Download CV
           </Button>
         </Stack>
+        </Reveal>
 
         {/* Tech stack strip */}
+        <Reveal delay={270}>
         <Stack
           direction="row"
           spacing={{ xs: 2, sm: 3 }}
@@ -116,6 +128,7 @@ const Hero = () => (
             </Typography>
           ))}
         </Stack>
+        </Reveal>
       </Stack>
     </Container>
   </Box>

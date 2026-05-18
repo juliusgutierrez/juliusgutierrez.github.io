@@ -40,7 +40,11 @@ const SectionHeading = ({ eyebrow, title, subtitle, align = "left" }) => (
       {title}
     </Typography>
     {subtitle && (
-      <Typography variant="body1" color="text.secondary">
+      <Typography
+        variant="body1"
+        color="text.secondary"
+        sx={{ maxWidth: "56ch" }}
+      >
         {subtitle}
       </Typography>
     )}
