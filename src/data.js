@@ -227,6 +227,29 @@ export const skills = [
   },
 ];
 
+// Tech logos for the Skills marquee. `slug` maps to simpleicons.org.
+export const techStack = [
+  { name: "Java", slug: "openjdk" },
+  { name: "Spring", slug: "spring" },
+  { name: "React", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "JavaScript", slug: "javascript" },
+  { name: "Python", slug: "python" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "AWS", slug: "amazonwebservices" },
+  { name: "Docker", slug: "docker" },
+  { name: "Kubernetes", slug: "kubernetes" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "Redis", slug: "redis" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "Oracle", slug: "oracle" },
+  { name: "Hibernate", slug: "hibernate" },
+  { name: "Jenkins", slug: "jenkins" },
+  { name: "Git", slug: "git" },
+  { name: "Jira", slug: "jira" },
+];
+
 export const education = [
   {
     school: "Adamson University",
@@ -251,6 +274,7 @@ export const contact = [
 export const navLinks = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
+  { label: "Skills", id: "skills" },
   { label: "Projects", id: "projects" },
   { label: "Experience", id: "experience" },
   { label: "Contact", id: "contact" },
@@ -309,7 +333,11 @@ export const projects = [
 
 export const socials = [
   { label: "GitHub", icon: "github", link: "https://github.com/juliusgutierrez" },
-  { label: "LinkedIn", icon: "linkedin", link: "https://www.linkedin.com/" },
+  {
+    label: "LinkedIn",
+    icon: "linkedin",
+    link: "https://www.linkedin.com/in/julius-gutierrez-47302298",
+  },
   { label: "Email", icon: "email", link: "mailto:juliusgutierrez@ymail.com" },
 ];
 

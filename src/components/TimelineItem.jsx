@@ -3,9 +3,16 @@ import { Box, Stack, Typography } from "@mui/material";
 
 /**
  * A single entry in a vertical timeline: a dot + connecting line on the left,
- * period / title / company / description on the right.
+ * period / title / company / detail bullets / tech stack on the right.
  */
-const TimelineItem = ({ period, title, company, description, last }) => (
+const TimelineItem = ({
+  period,
+  title,
+  company,
+  details = [],
+  techStack = [],
+  last,
+}) => (
   <Stack direction="row" spacing={{ xs: 2, sm: 3 }}>
     {/* Connector */}
     <Stack alignItems="center" sx={{ pt: 0.5 }}>
@@ -37,9 +44,63 @@ const TimelineItem = ({ period, title, company, description, last }) => (
           {company}
         </Typography>
       )}
-      {description && (
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-          {description}
+
+      {details.length > 0 && (
+        <Stack
+          component="ul"
+          spacing={1.25}
+          sx={{ listStyle: "none", m: 0, p: 0, mt: 2 }}
+        >
+          {details.map((detail) => (
+            <Stack
+              key={detail}
+              component="li"
+              direction="row"
+              spacing={1.5}
+              alignItems="flex-start"
+            >
+              <Box
+                sx={{
+                  flexShrink: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  height: "1.6em",
+                  fontSize: "0.875rem",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 14,
+                    height: "2px",
+                    borderRadius: 1,
+                    bgcolor: "primary.light",
+                  }}
+                />
+              </Box>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ lineHeight: 1.6, maxWidth: "62ch" }}
+              >
+                {detail}
+              </Typography>
+            </Stack>
+          ))}
+        </Stack>
+      )}
+
+      {techStack.length > 0 && (
+        <Typography
+          variant="caption"
+          sx={{
+            color: "text.secondary",
+            opacity: 0.65,
+            letterSpacing: "0.02em",
+            lineHeight: 1.7,
+            mt: 2,
+          }}
+        >
+          {techStack.join("  ·  ")}
         </Typography>
       )}
     </Stack>
@@ -50,7 +111,8 @@ TimelineItem.propTypes = {
   period: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   company: PropTypes.string,
-  description: PropTypes.string,
+  details: PropTypes.arrayOf(PropTypes.string),
+  techStack: PropTypes.arrayOf(PropTypes.string),
   last: PropTypes.bool,
 };
 

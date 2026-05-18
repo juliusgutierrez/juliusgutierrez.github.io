@@ -22,7 +22,8 @@ const Experience = () => (
               period={role.period}
               title={role.position}
               company={role.company}
-              description={role.details[0]}
+              details={role.details}
+              techStack={role.techStack}
               last={index === roles.length - 1}
             />
           </Reveal>
