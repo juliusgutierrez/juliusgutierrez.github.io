@@ -69,15 +69,15 @@ const Hero = () => (
             spacing={2}
             sx={{ pt: 1 }}
           >
-            <Button
+            {/* <Button
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
               onClick={() => scrollToId("projects")}
             >
               View My Work
-            </Button>
-            <Button
+            </Button> */}
+            {/* <Button
               variant="contained"
               color="inherit"
               size="large"
@@ -96,7 +96,7 @@ const Hero = () => (
               }}
             >
               Download CV
-            </Button>
+            </Button> */}
           </Stack>
         </Reveal>
 
