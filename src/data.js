@@ -227,6 +227,29 @@ export const skills = [
   },
 ];
 
+// Tech logos for the Skills marquee. `slug` maps to simpleicons.org.
+export const techStack = [
+  { name: "Java", slug: "openjdk" },
+  { name: "Spring", slug: "spring" },
+  { name: "React", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "JavaScript", slug: "javascript" },
+  { name: "Python", slug: "python" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "AWS", slug: "amazonwebservices" },
+  { name: "Docker", slug: "docker" },
+  { name: "Kubernetes", slug: "kubernetes" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "Redis", slug: "redis" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "Oracle", slug: "oracle" },
+  { name: "Hibernate", slug: "hibernate" },
+  { name: "Jenkins", slug: "jenkins" },
+  { name: "Git", slug: "git" },
+  { name: "Jira", slug: "jira" },
+];
+
 export const education = [
   {
     school: "Adamson University",
@@ -241,7 +264,100 @@ export const contact = [
   {
     label: "Email",
     value: "juliusgutierrez@ymail.com",
-    link: "mailto:juliusgutierrez",
+    link: "mailto:juliusgutierrez@ymail.com",
   },
   { label: "Location", value: "Manila, Philippines" },
 ];
+
+// --- Landing page content -------------------------------------------------
+
+export const navLinks = [
+  { label: "Home", id: "home" },
+  { label: "Services", id: "services" },
+  { label: "Skills", id: "skills" },
+  // { label: "Projects", id: "projects" },
+  { label: "Experience", id: "experience" },
+  { label: "Contact", id: "contact" },
+];
+
+export const services = [
+  {
+    icon: "architecture",
+    title: "System Architecture",
+    description:
+      "Designing scalable, resilient architectures and clear API contracts that hold up as systems grow.",
+  },
+  {
+    icon: "fullstack",
+    title: "Fullstack Development",
+    description:
+      "Building end-to-end products with React on the front and Spring Boot services behind them.",
+  },
+  {
+    icon: "cloud",
+    title: "Cloud Engineering",
+    description:
+      "Containerized, cloud-ready deployments on AWS with CI/CD pipelines and observability built in.",
+  },
+  {
+    icon: "integration",
+    title: "Integration & APIs",
+    description:
+      "Connecting multi-service ecosystems and third-party platforms with secure, reliable data exchange.",
+  },
+];
+
+export const projects = [
+  {
+    title: "Warehouse Management System",
+    description:
+      "Enterprise inventory and fulfillment platform with real-time stock tracking and reporting.",
+    image: "/projects/warehouse.jpg",
+    tags: ["Java", "Spring Boot", "Oracle"],
+  },
+  {
+    title: "Payment System Integration",
+    description:
+      "Secure payment gateway integration handling transactional reliability across multiple providers.",
+    image: "/projects/payments.jpg",
+    tags: ["REST APIs", "Microservices", "OAuth2"],
+  },
+  {
+    title: "Real-time Monitoring Platform",
+    description:
+      "Operational dashboard surfacing live system metrics and alerts for distributed services.",
+    image: "/projects/monitoring.jpg",
+    tags: ["ReactJS", "Node.js", "AWS"],
+  },
+];
+
+export const socials = [
+  {
+    label: "GitHub",
+    icon: "github",
+    link: "https://github.com/juliusgutierrez",
+  },
+  {
+    label: "LinkedIn",
+    icon: "linkedin",
+    link: "https://www.linkedin.com/in/julius-gutierrez-47302298",
+  },
+  { label: "Email", icon: "email", link: "mailto:juliusgutierrez@ymail.com" },
+];
+
+export const hero = {
+  name: "Julius Gutierrez",
+  title: "Senior Software Engineer & System Analyst",
+  headlineLead: "I design and build",
+  headlineHighlight: "scalable",
+  headlineTrail: "systems that drive results.",
+  subtext:
+    "Solution Architect & Fullstack Developer with 10+ years of experience building cloud-native applications and enterprise systems.",
+  cv: "/cv.pdf",
+};
+
+export const cta = {
+  title: "Let's build something great",
+  subtitle:
+    "Have a project or a system that needs modernizing? Let's talk about how to make it scalable.",
+};
