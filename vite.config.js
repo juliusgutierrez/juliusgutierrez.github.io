@@ -1,11 +1,11 @@
-import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// GitHub Pages redirects /sahod to /sahod/; mirror that in the dev server,
-// which otherwise falls back to the main page for slash-less paths.
-const trailingSlashRedirect = {
-  name: "trailing-slash-redirect",
+// The sahod PWA lives in public/sahod/ and is served as-is in production.
+// GitHub Pages redirects /sahod to /sahod/ and resolves the directory index;
+// Vite's dev server does neither, so mirror both here.
+const sahodStaticApp = {
+  name: "sahod-static-app",
   configureServer(server) {
     server.middlewares.use((req, res, next) => {
       if (req.url === "/sahod") {
@@ -14,22 +14,17 @@ const trailingSlashRedirect = {
         res.end();
         return;
       }
+      if (req.url === "/sahod/") {
+        req.url = "/sahod/index.html";
+      }
       next();
     });
   },
 };
 
 export default defineConfig({
-  plugins: [react(), trailingSlashRedirect],
+  plugins: [react(), sahodStaticApp],
   base: "/",
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-        sahod: resolve(__dirname, "sahod/index.html"),
-      },
-    },
-  },
   server: {
     port: 5173,
   },

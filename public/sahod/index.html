@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Sahod — Cutoff Tracker</title>
+<meta name="theme-color" content="#0F1B16">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sahod">
+<style>
+:root{
+  --ink:#0F1B16; --card:#17251E; --card-2:#1D2E25; --line:#2A3B32;
+  --paper:#F4EDDC; --paper-dim:#E4DCC8; --paper-ink:#22251C; --paper-mut:#7A755F;
+  --accent:#FFB03A; --accent-ink:#1A1408;
+  --ok:#46C08A; --warn:#E9A83C; --over:#FF6161; --mut:#8FA69A; --txt:#EDF3EF;
+  --disp:'American Typewriter','Courier New',ui-monospace,monospace;
+  --body:'Avenir Next','Avenir','Segoe UI',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--ink);color:var(--txt);font-family:var(--body);
+  padding:env(safe-area-inset-top) 0 0 0; overscroll-behavior:none;
+  background-image:radial-gradient(1200px 500px at 50% -10%, #16281F 0%, var(--ink) 60%)}
+button{font-family:inherit;border:0;background:none;color:inherit;cursor:pointer}
+input{font-family:inherit}
+
+header{display:flex;align-items:baseline;justify-content:space-between;
+  padding:14px 18px 8px}
+.brand{font-family:var(--disp);font-size:22px;letter-spacing:.5px;color:var(--paper)}
+.brand em{font-style:normal;color:var(--accent)}
+.tagline{font-size:11px;color:var(--mut);letter-spacing:.12em;text-transform:uppercase}
+
+main{padding:0 14px 110px;max-width:520px;margin:0 auto}
+.view{display:none}.view.active{display:block}
+
+/* ---------- cutoff selector ---------- */
+.cutsel{display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:6px 6px;margin:8px 0 14px}
+.cutsel button{width:44px;height:40px;font-size:20px;color:var(--accent);border-radius:10px}
+.cutsel button:active{background:var(--card-2)}
+.cutsel .lab{text-align:center}
+.cutsel .lab b{font-family:var(--disp);font-size:17px;letter-spacing:.4px}
+.cutsel .lab span{display:block;font-size:10.5px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- receipt (Quick Add) ---------- */
+.receipt{background:var(--paper);color:var(--paper-ink);border-radius:16px 16px 0 0;
+  padding:18px 18px 22px;margin-top:10px;position:relative;
+  box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.receipt::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:10px;
+  background:radial-gradient(circle at 9px -2px, var(--paper) 7px, transparent 7.5px);
+  background-size:18px 10px;background-repeat:repeat-x}
+.r-head{display:flex;justify-content:space-between;font-size:10.5px;color:var(--paper-mut);
+  letter-spacing:.14em;text-transform:uppercase;border-bottom:1.5px dashed var(--paper-dim);
+  padding-bottom:8px}
+.amount{font-family:var(--disp);font-size:46px;text-align:right;padding:16px 2px 4px;
+  font-variant-numeric:tabular-nums;line-height:1;min-height:64px;word-break:break-all}
+.amount .peso{font-size:26px;color:var(--paper-mut);margin-right:4px}
+.amount.zero{color:var(--paper-mut)}
+.r-meta{display:flex;gap:8px;align-items:center;border-top:1.5px dashed var(--paper-dim);padding-top:10px}
+.r-meta input[type=date]{flex:1;background:transparent;border:0;color:var(--paper-ink);
+  font-family:var(--disp);font-size:14px}
+.r-meta .cotag{font-size:11px;background:var(--paper-ink);color:var(--paper);
+  border-radius:20px;padding:4px 10px;font-family:var(--disp);white-space:nowrap}
+.note{width:100%;background:transparent;border:0;border-top:1.5px dashed var(--paper-dim);
+  margin-top:10px;padding:10px 2px 0;font-size:14px;color:var(--paper-ink)}
+.note::placeholder{color:var(--paper-mut)}
+
+.sec{font-size:11px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;margin:20px 4px 8px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:9px 13px;text-align:left;transition:transform .06s}
+.chip:active{transform:scale(.96)}
+.chip b{display:block;font-size:14px;font-weight:600}
+.chip span{display:block;font-size:11px;color:var(--mut);font-variant-numeric:tabular-nums;margin-top:2px}
+.chip.sel{border-color:var(--accent);background:#241F12}
+.chip.sel b{color:var(--accent)}
+.chip.overq span{color:var(--over)}
+.seg{display:flex;gap:6px}
+.seg .chip{flex:1;text-align:center;padding:10px 4px}
+
+/* ---------- keypad ---------- */
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.pad button{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  font-family:var(--disp);font-size:24px;padding:14px 0;transition:transform .05s}
+.pad button:active{transform:scale(.94);background:var(--card-2)}
+.save{width:100%;margin-top:12px;background:var(--accent);color:var(--accent-ink);
+  border-radius:16px;padding:16px;font-size:16px;font-weight:700;letter-spacing:.03em;
+  font-family:var(--disp);transition:transform .06s}
+.save:active{transform:scale(.98)}
+
+/* ---------- tracker ---------- */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.kpi span{font-size:10px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
+.kpi b{display:block;font-family:var(--disp);font-size:16px;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi.neg b{color:var(--over)}
+.env{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:12px 14px;margin-bottom:9px}
+.env .top{display:flex;justify-content:space-between;align-items:baseline}
+.env .top b{font-size:15px}
+.env .top .st{font-size:10px;font-family:var(--disp);letter-spacing:.08em;padding:3px 8px;border-radius:20px}
+.st.ok{color:var(--ok);background:rgba(70,192,138,.12)}
+.st.watch{color:var(--warn);background:rgba(233,168,60,.13)}
+.st.used{color:var(--mut);background:rgba(143,166,154,.12)}
+.st.over{color:var(--over);background:rgba(255,97,97,.14)}
+.env .nums{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);
+  margin:7px 0 7px;font-variant-numeric:tabular-nums}
+.env .nums b{color:var(--txt);font-weight:600}
+.env .nums .rem.neg{color:var(--over);font-weight:700}
+.bar{height:7px;background:#0C1512;border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:6px;background:var(--ok);transition:width .35s ease}
+.bar i.watch{background:var(--warn)} .bar i.used{background:#6B7F75} .bar i.over{background:var(--over)}
+.ccline{display:flex;justify-content:space-between;color:var(--mut);font-size:13px;
+  padding:12px 6px 0;font-variant-numeric:tabular-nums}
+
+/* ---------- history ---------- */
+.dayhead{font-family:var(--disp);font-size:12px;color:var(--mut);margin:16px 4px 6px;letter-spacing:.06em}
+.tx{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:11px 13px;margin-bottom:7px}
+.tx .mid{flex:1;min-width:0}
+.tx .mid b{display:block;font-size:14px}
+.tx .mid span{display:block;font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx .amt{font-family:var(--disp);font-size:15px;font-variant-numeric:tabular-nums}
+.tx .del{color:var(--mut);font-size:17px;padding:6px}
+.empty{text-align:center;color:var(--mut);padding:40px 20px;font-size:14px;line-height:1.6}
+.ghost{width:100%;margin-top:14px;border:1.5px dashed var(--line);border-radius:14px;
+  padding:13px;color:var(--mut);font-size:14px}
+
+/* ---------- plan ---------- */
+.planrow{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:10px 13px;margin-bottom:7px}
+.planrow b{flex:1;font-size:14px}
+.planrow input{width:110px;background:#0C1512;border:1px solid var(--line);border-radius:10px;
+  color:var(--txt);padding:9px 10px;font-family:var(--disp);font-size:14px;text-align:right}
+.planrow .x{color:var(--mut);padding:4px 6px}
+.plantotal{display:flex;justify-content:space-between;padding:10px 6px;font-family:var(--disp);
+  font-variant-numeric:tabular-nums}
+.addenv{display:flex;gap:8px;margin-top:12px}
+.addenv input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  color:var(--txt);padding:11px 12px;font-size:14px}
+.addenv button{background:var(--card-2);border:1px solid var(--line);border-radius:12px;padding:0 16px;color:var(--accent);font-size:20px}
+.hint{font-size:11.5px;color:var(--mut);margin:10px 4px;line-height:1.5}
+
+/* ---------- tabs ---------- */
+nav{position:fixed;bottom:0;left:0;right:0;background:rgba(15,27,22,.92);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);display:flex;
+  padding:8px 10px calc(10px + env(safe-area-inset-bottom))}
+nav button{flex:1;color:var(--mut);font-size:11px;letter-spacing:.06em;padding:6px 0}
+nav button i{display:block;font-style:normal;font-size:19px;margin-bottom:3px}
+nav button.on{color:var(--accent)}
+
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);
+  background:var(--paper);color:var(--paper-ink);font-family:var(--disp);font-size:14px;
+  padding:11px 20px;border-radius:30px;opacity:0;pointer-events:none;transition:all .25s;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="brand">Sa<em>hod</em></div></div>
+  <div class="tagline">cutoff tracker</div>
+</header>
+
+<main>
+  <!-- ADD -->
+  <section class="view active" id="view-add">
+    <div class="receipt">
+      <div class="r-head"><span>New entry</span><span id="r-no">SAHOD·001</span></div>
+      <div class="amount zero" id="amount"><span class="peso">₱</span>0</div>
+      <div class="r-meta">
+        <input type="date" id="txdate">
+        <span class="cotag" id="cotag">Jul 6</span>
+      </div>
+      <input class="note" id="note" placeholder="What was it? (e.g., SM groceries)" maxlength="60">
+    </div>
+
+    <div class="sec">Envelope</div>
+    <div class="chips" id="envchips"></div>
+    <div class="sec">From account</div>
+    <div class="seg" id="acctchips"></div>
+    <div class="sec">Paid with</div>
+    <div class="seg" id="paychips"></div>
+
+    <div class="pad" id="pad">
+      <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+      <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+      <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+      <button data-k=".">·</button><button data-k="0">0</button><button data-k="⌫">⌫</button>
+    </div>
+    <button class="save" id="save">Save entry</button>
+  </section>
+
+  <!-- TRACKER -->
+  <section class="view" id="view-track">
+    <div class="cutsel">
+      <button id="prevco">‹</button>
+      <div class="lab"><b id="colabel">—</b><span id="cosub">cutoff</span></div>
+      <button id="nextco">›</button>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><span>Budgeted</span><b id="k-bud">₱0</b></div>
+      <div class="kpi"><span>Spent</span><b id="k-spent">₱0</b></div>
+      <div class="kpi" id="k-left-w"><span>Left</span><b id="k-left">₱0</b></div>
+    </div>
+    <div id="envlist"></div>
+    <div class="ccline"><span>💳 Charged to card this cutoff</span><b id="ccamt">₱0.00</b></div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="view" id="view-hist">
+    <div class="cutsel">
+      <button id="prevco2">‹</button>
+      <div class="lab"><b id="colabel2">—</b><span id="cosub2">cutoff</span></div>
+      <button id="nextco2">›</button>
+    </div>
+    <div id="histlist"></div>
+    <button class="ghost" id="exportcsv">⇩ Export all entries (CSV)</button>
+  </section>
+
+  <!-- PLAN -->
+  <section class="view" id="view-plan">
+    <div class="sec" style="margin-top:8px">Budget applies to</div>
+    <div class="seg" id="planmode"></div>
+    <div style="height:12px"></div>
+    <div id="planlist"></div>
+    <div class="plantotal"><span>Total allocated</span><b id="plantotal">₱0</b></div>
+    <div class="addenv">
+      <input id="newenv" placeholder="New envelope name" maxlength="24">
+      <button id="addenv">＋</button>
+    </div>
+    <p class="hint">“Default” is your standing plan for every cutoff. Switch to a specific cutoff to
+    override amounts for that payday only (e.g., Subscriptions ₱5,575 on Jul 21). Your data lives on
+    this phone — Phase 2 adds cloud sync.</p>
+  </section>
+</main>
+
+<nav>
+  <button data-view="add" class="on"><i>✚</i>Add</button>
+  <button data-view="track"><i>▤</i>Cutoff</button>
+  <button data-view="hist"><i>≣</i>History</button>
+  <button data-view="plan"><i>◔</i>Plan</button>
+</nav>
+
+<div class="toast" id="toast">Saved</div>
+
+<script src="./app.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+}
+</script>
+</body>
+</html>
