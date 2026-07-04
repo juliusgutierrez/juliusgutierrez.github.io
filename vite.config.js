@@ -2,8 +2,25 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+// GitHub Pages redirects /sahod to /sahod/; mirror that in the dev server,
+// which otherwise falls back to the main page for slash-less paths.
+const trailingSlashRedirect = {
+  name: "trailing-slash-redirect",
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      if (req.url === "/sahod") {
+        res.statusCode = 301;
+        res.setHeader("Location", "/sahod/");
+        res.end();
+        return;
+      }
+      next();
+    });
+  },
+};
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), trailingSlashRedirect],
   base: "/",
   build: {
     rollupOptions: {
